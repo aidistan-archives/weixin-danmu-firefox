@@ -8,5 +8,11 @@
   "homepage": "https://github.com/aidistan/firefox-weixin-danmu",
   "author": "Aidi Stan",
   "license": "MIT",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "preferences": [{
+    "name": "fontSize",
+    "title": "弹幕字体大小",
+    "type": "integer",
+    "value": 12
+  }]
 }
