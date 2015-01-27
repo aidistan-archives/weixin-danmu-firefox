@@ -2,8 +2,11 @@
   "name": "weixin-danmu",
   "title": "微信弹幕",
   "id": "jid1-MxmEznXZHTAnJw",
-  "description": "微信网页弹幕Firefox插件",
+  "description": "将网页版微信的消息即时显示在任意标签页上",
+  "icon": "data/icon-32.png",
+  "icon64": "data/icon-64.png",
+  "homepage": "https://github.com/aidistan/firefox-weixin-danmu",
   "author": "Aidi Stan",
   "license": "MIT",
-  "version": "0.1"
+  "version": "0.0.1"
 }
