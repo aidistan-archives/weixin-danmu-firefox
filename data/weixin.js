@@ -4,7 +4,7 @@ var last = '';
 $('body').bind('DOMNodeInserted', function() {
   var msg = captureMessage();
   if (msg.id && msg.id !== last) {
-    console.log('捕获消息[' + msg.id + ']');
+    console.log('捕获消息：' + msg);
     port.emit('bullet', msg);
     last = msg.id;
   }
