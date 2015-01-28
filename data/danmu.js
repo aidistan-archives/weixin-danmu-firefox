@@ -19,10 +19,6 @@ self.port.on("fontSize", function(size) {
   fontSize = size;
 });
 
-if ($('body').length == 0) {
-  alert('非HTML标签页无法显示弹幕...');
-}
-
 function make(msg) {
   var color = colors[Math.floor(Math.random() * colors.length)];
   if (colorCtl.test(msg.content.text)) {
