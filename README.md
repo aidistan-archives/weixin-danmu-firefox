@@ -6,11 +6,13 @@
 
 ### 从 Firefox 附件商店安装 (较易)
 
-Firefox 附件商店链接：[https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)
+[Firefox 附件商店链接](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)
 
 ### 使用插件压缩包安装 (较繁)
 
-制作中...
+1. 前往插件在 Github 的[发布页面](https://github.com/aidistan/firefox-weixin-danmu/releases/latest)下载最新版本
+2. 将压缩包中的 xpi 文件提取出来
+3. 打开火狐浏览器的附加组件页面`about:addons`，点击右上角的工具按钮，选择从文件安装
 
 ## 使用
 
