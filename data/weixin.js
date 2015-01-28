@@ -4,7 +4,7 @@ var last = '';
 $('body').bind('DOMNodeInserted', function() {
   var msg = captureMessage();
   if (msg.id && msg.id !== last) {
-    console.log('捕获消息：' + msg.content.text);
+    console.log('Message captured：' + msg.content.text);
     port.emit('bullet', msg);
     last = msg.id;
   }
@@ -21,7 +21,7 @@ $('body').bind('DOMNodeInserted', function() {
   };
 */
 function captureMessage() {
-  if ($('.chatItemContent:last pre img').length) { // 带表情的文本消息
+  if ($('.chatItemContent:last pre img').length) { // Text msg with Emoji
     $('.chatItemContent:last pre img').each(function() {
       var src = $(this).attr('src');
       $(this).attr('src', 'https://wx.qq.com' + src);
@@ -30,7 +30,7 @@ function captureMessage() {
   } else {
     var text = $('.chatItemContent:last pre').text();
   }
-  if ($('.chatItemContent:last .img_wrap img').length) { // 图片消息（照片）
+  if ($('.chatItemContent:last .img_wrap img').length) { // Image msg
     var img = 'https://wx.qq.com' + $('.chatItemContent:last .img_wrap img').attr('src');
   } else if ($('.chatItemContent:last .customEmoji').length) {
     var img = 'https://wx.qq.com' + $('.chatItemContent:last .customEmoji').attr('src');

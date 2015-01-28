@@ -1,4 +1,6 @@
 /*
+  Predefined colors
+
   blue: '#00aeef',
   red: '#ea428a',
   yellow: '#eed500',
@@ -74,5 +76,5 @@ function shoot(bullet) {
       }
     }
   );
-  console.log('发射弹幕：' + bullet.html());
+  console.log('Bullet shoot：' + bullet.html());
 }
