@@ -61,11 +61,15 @@ function make(msg) {
 }
 
 function shoot(bullet) {
+  bullet.hide().prependTo($('body')); // Insert to get proper width
   bullet.css({
+    'z-index': 10000,
+    display: 'block',
     position: 'fixed',
     top: Math.max(0,~~(Math.random() * window.innerHeight) - bullet.height()),
     left: window.innerWidth,
-  }).prependTo($('body'));
+    width: bullet.width()
+  }).show();
   bullet.animate({
       left: -bullet.width()
     }, ~~(Math.random() * 15) + 15000, 'linear', function() {
