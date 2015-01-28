@@ -4,15 +4,7 @@
 
 ## 安装
 
-### 从 Firefox 附件商店安装 (较易)
-
-[Firefox 附件商店链接](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)
-
-### 使用插件压缩包安装 (较繁)
-
-1. 前往插件在 Github 的[发布页面](https://github.com/aidistan/firefox-weixin-danmu/releases/latest)下载最新版本
-2. 将压缩包中的 xpi 文件提取出来
-3. 打开火狐浏览器的附加组件页面`about:addons`，点击右上角的工具按钮，选择从文件安装
+[请从 Firefox 附加组件网站直接安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)
 
 ## 使用
 
@@ -23,6 +15,12 @@
 5. 在手机微信上向所选的好友或群发消息
 6. 弹幕出现！
 
+Tips: 1）点击工具栏按钮会自动打开网页微信页面；2）网页微信完整加载后，工具栏按钮会自动点亮，此时点击按钮可以关闭/开启弹幕显示；3）从附加组件的设置页中可以调整弹幕字体大小和开启两种测试模式。
+
 ## 致谢
 
 本插件深受 [WeShoot](https://github.com/Integ/WeShoot) 启发，特此感谢！
+
+## 历史
+
+- v1.0.0 (20150128): 基本功能上线
