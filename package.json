@@ -13,6 +13,20 @@
     "name": "fontSize",
     "title": "弹幕字体大小",
     "type": "integer",
-    "value": 12
+    "value": 24
+  },
+  {
+    "name": "weixinDebug",
+    "title": "微信测试模式",
+    "description": "通过警告框显示接收到的微信消息",
+    "type": "bool",
+    "value": false
+  },
+  {
+    "name": "danmuDebug",
+    "title": "弹幕测试模式",
+    "description": "点击工具栏按钮会发射若干随机字符串至屏幕",
+    "type": "bool",
+    "value": false
   }]
 }

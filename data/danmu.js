@@ -1,41 +1,41 @@
 var fontSize = 12;
 
-var danmu = $('.danmu');
+var danmu = $('#weixin-danmu');
 if (danmu.length == 0) {
-  danmu = $('<div></div>').addClass('danmu').css({
+  danmu = $('<div></div>').attr('id', 'weixin-danmu').css({
     "position": "fixed",
     "z-index": 10000,
     "overflow": "hidden"
-  });
-  $('body').append(danmu);
+  }).appendTo($('body'));
 }
-danmu.css({
-  "width": window.innerWidth,
-  "height": window.innerHeight,
-  "padding": fontSize
-});
+refresh();
 
+self.port.on('bullet', shootMessage);
 self.port.on("fontSize", function(size) {
   fontSize = size;
-  danmu.css("padding", fontSize);
+  refresh();
 });
 
-var HEIGHT = window.innerHeight;
-var WIDTH = window.innerWidth;
-self.port.on("bullet", function(msg) {
-  console.log(msg);
-  bullet = $('<div>' + msg.msg.text + '</div>').addClass('danmu-bullet');
+function refresh() {
+  danmu.css({
+    "width": window.innerWidth,
+    "height": window.innerHeight,
+    "padding": fontSize * 2
+  });
+}
+
+function shootMessage(msg) {
+  var bullet = $('<div>' + msg.content.text + '</div>');
+  var win_width  = window.innerWidth;
+  var win_height = window.innerHeight;
 
   bullet.hide().appendTo(danmu);
-  bullet
-    .css({
+  bullet.css({
       'font-size': fontSize,
-      'position': 'absolute'
-    }).css({
-      top: Math.max(0,~~(Math.random() * HEIGHT) - bullet.height()),
-      left: WIDTH + bullet.width(),
-      color: '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16),
-      width: bullet.width(),
+      position: 'absolute',
+      top: Math.max(0,~~(Math.random() * win_height) - bullet.height()),
+      left: win_width,
+      color: '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16)
     }).show();
   bullet.animate({
     left: -bullet.width()
@@ -44,4 +44,5 @@ self.port.on("bullet", function(msg) {
       $(this).remove();
     }
   });
-});
+  console.log('已发射弹幕：' + bullet.html());
+}
