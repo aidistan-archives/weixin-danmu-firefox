@@ -1,7 +1,8 @@
 var port = self.port;
 var last = '';
 
-$('body').bind('DOMNodeInserted', function() {
+// Add a mutation listener which is absolutely necessary
+$('#chatMainPanel').bind('DOMNodeInserted', function() {
   var msg = captureMessage();
   if (msg.id && msg.id !== last) {
     console.log('Message captured：' + msg.content.text);
