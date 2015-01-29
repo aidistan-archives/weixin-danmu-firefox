@@ -4,7 +4,7 @@
 
 ## 安装
 
-[请从 Firefox 附加组件网站直接安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)
+目前支持[从火狐扩展商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)和[从Github直接安装](http://aidistan.github.io/adome/assets/misc/weixin-danmu.xpi)。
 
 ## 使用
 
@@ -15,11 +15,7 @@
 5. 在手机微信上向所选的好友或群发消息
 6. 弹幕出现！
 
-### Tips
-
-1. 点击工具栏按钮会自动打开网页微信页面；
-2. 网页微信完整加载后，工具栏按钮会自动点亮，此时点击按钮可以关闭/开启弹幕显示；
-3. 从附加组件的设置页中可以调整弹幕字体大小和开启两种测试模式。
+更多用法请参考这篇[博文](http://adome.aidistan.net/2015/01/29/weixin-danmu/)。
 
 ## 致谢
 
