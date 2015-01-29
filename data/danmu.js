@@ -60,7 +60,10 @@ function make(msg) {
 }
 
 function shoot(bullet) {
-  bullet.hide().prependTo($('body')); // Insert to get proper width
+  // Insert first to get proper width
+  var fullElement = document.mozFullScreenElement
+  bullet.hide().appendTo(fullElement ? $(fullElement) : $('body'));
+
   bullet.css({
     'z-index': 10000,
     display: 'block',
