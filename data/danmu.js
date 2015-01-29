@@ -14,15 +14,12 @@ var fontSize = 12;
 var colors = ['#00aeef', '#ea428a', '#eed500', '#f5a70d', '#8bcb30', '#9962c1', '#333333'];
 var colorCtl = RegExp("^:([蓝红黄橙绿紫黑])");
 
-port.on('bullet',function(msg) {
-  shoot(make(msg));
-});
-
 port.on("fontSize", function(size) {
   fontSize = size;
 });
 
-function make(msg) {
+port.on('bullet', function(msg) {
+  // Color controls
   var color = colors[Math.floor(Math.random() * colors.length)];
   if (colorCtl.test(msg.content.text)) {
     switch (colorCtl.exec(msg.content.text)[1]) {
@@ -51,19 +48,18 @@ function make(msg) {
     msg.content.text = msg.content.text.replace(colorCtl, '');
   }
 
+  // Make bullet
   var bullet = $('<div>' + msg.content.text + '</div>').addClass('danmu-bullet').css({
     'font-size': fontSize,
     'font-weight': 'bold',
     color: color
   });
-  return bullet;
-}
 
-function shoot(bullet) {
   // Insert first to get proper width
   var fullElement = document.mozFullScreenElement
   bullet.hide().appendTo(fullElement ? $(fullElement) : $('body'));
 
+  // Place at the right place
   bullet.css({
     'z-index': 10000,
     display: 'block',
@@ -72,6 +68,8 @@ function shoot(bullet) {
     left: window.innerWidth,
     width: bullet.width()
   }).show();
+
+  // Fire the animation
   bullet.animate({
       left: -bullet.width()
     }, ~~(Math.random() * 15) + 15000, 'linear', function() {
@@ -80,5 +78,6 @@ function shoot(bullet) {
       }
     }
   );
+
   port.emit('notify', { title: '发射弹幕', text: bullet.html() })
-}
+});
