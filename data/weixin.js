@@ -1,15 +1,14 @@
 var port = self.port;
 var last = '';
 
-// Add a mutation listener which is absolutely necessary
-$('#chatMainPanel').bind('DOMNodeInserted', function() {
+new MutationObserver(function() {
   var msg = captureMessage();
   if (msg.id && msg.id !== last) {
     port.emit('notify', { title: '捕获消息', text: msg.content.text })
     port.emit('bullet', msg);
     last = msg.id;
   }
-});
+}).observe(document.getElementById('chatMainPanel'), { 'childList': true, 'subtree': true });
 
 /*
   An typical message looks like:
