@@ -16,6 +16,13 @@
     "value": 24
   },
   {
+    "name": "showNotifications",
+    "title": "显示消息通告",
+    "description": "让微信弹幕的所有消息弹出浏览器消息通告",
+    "type": "bool",
+    "value": false
+  },
+  {
     "name": "weixinDebug",
     "title": "微信测试模式",
     "description": "通过警告框显示接收到的微信消息",

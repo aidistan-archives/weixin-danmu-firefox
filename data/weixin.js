@@ -5,7 +5,7 @@ var last = '';
 $('#chatMainPanel').bind('DOMNodeInserted', function() {
   var msg = captureMessage();
   if (msg.id && msg.id !== last) {
-    console.log('Message captured：' + msg.content.text);
+    port.emit('notify', { title: '捕获消息', text: msg.content.text })
     port.emit('bullet', msg);
     last = msg.id;
   }

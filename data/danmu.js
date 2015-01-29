@@ -76,5 +76,5 @@ function shoot(bullet) {
       }
     }
   );
-  console.log('Bullet shoot：' + bullet.html());
+  self.port.emit('notify', { title: '发射弹幕', text: bullet.html() })
 }
