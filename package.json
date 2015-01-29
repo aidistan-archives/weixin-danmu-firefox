@@ -17,8 +17,8 @@
   },
   {
     "name": "showNotifications",
-    "title": "显示消息通告",
-    "description": "让微信弹幕的所有消息弹出浏览器消息通告",
+    "title": "显示消息通知",
+    "description": "所有微信弹幕的消息会弹出浏览器消息通告",
     "type": "bool",
     "value": false
   },

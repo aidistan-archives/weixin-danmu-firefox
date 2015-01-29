@@ -1,3 +1,5 @@
+var port = self.port;
+var fontSize = 12;
 /*
   Predefined colors
 
@@ -10,14 +12,13 @@
   black: '#333333'
 */
 var colors = ['#00aeef', '#ea428a', '#eed500', '#f5a70d', '#8bcb30', '#9962c1', '#333333'];
-var fontSize = 12;
 var colorCtl = RegExp("^:([蓝红黄橙绿紫黑])");
 
-self.port.on('bullet',function(msg) {
+port.on('bullet',function(msg) {
   shoot(make(msg));
 });
 
-self.port.on("fontSize", function(size) {
+port.on("fontSize", function(size) {
   fontSize = size;
 });
 
@@ -76,5 +77,5 @@ function shoot(bullet) {
       }
     }
   );
-  self.port.emit('notify', { title: '发射弹幕', text: bullet.html() })
+  port.emit('notify', { title: '发射弹幕', text: bullet.html() })
 }
