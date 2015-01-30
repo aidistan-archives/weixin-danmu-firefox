@@ -1,59 +1,32 @@
 /* Reset Amaze style */
 .am-container { max-width: 640px; }
-h1 { font-size: 2.00em; margin-top: 1.00em; }
-h2 { font-size: 1.50em; margin-top: 0.50em; }
-h3 { font-size: 1.25em; margin-top: 0.25em; }
+h1 { font-size: 2.50em; margin-top: 1.00em; }
+h2 { font-size: 2.00em; margin-top: 1.00em; }
+h3 { font-size: 1.50em; margin-top: 0.50em; }
+h4 { font-size: 1.25em; margin-top: 0.25em; }
 
 /* Our own */
 .banner {
-  position: relative;
-  overflow-x: hidden;
-  height: 300px;
-  background-color: #27cc2c;
-  background-image: url("icon-o.png");
-  background-repeat: no-repeat;
-  background-size: 200px 200px;
-  background-position: top center;
-}
-
-.banner-title {
-  margin: 0;
-  padding: 0;
-  position: relative;
   text-align: center;
-  font-weight: bold;
-  width: 100%;
-  white-space: nowrap;
-  overflow-x: hidden;
-}
-
-h1.banner-title {
-  top: 60px;
-  font-size: 48px;
-}
-
-p.banner-title {
-  top: 60px;
-  font-size: 20px;
 }
 
 .banner-btnbox {
-  position: relative;
-  top: 80px;
-  text-align: center;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 450px) {
+  h1 { font-size: 2.00em; margin-top: 1.00em; }
+  h2 { font-size: 1.50em; margin-top: 0.50em; }
+  h3 { font-size: 1.25em; margin-top: 0.25em; }
+  h4 { font-size: 1.00em; margin-top: 0.00em; }
+
   h1.banner-title {
-    top: 80px;
+    margin-top: 32px;
     font-size: 32px;
   }
+
   p.banner-title {
-    top: 80px;
     font-size: 16px;
-  }
-  .banner-btnbox {
-    top: 120px;
   }
 }
 
