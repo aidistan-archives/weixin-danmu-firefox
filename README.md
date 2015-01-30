@@ -4,7 +4,7 @@
 
 ## 安装
 
-目前支持[从火狐扩展商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)和[从Github直接安装](http://aidistan.github.io/adome/assets/misc/weixin-danmu.xpi)。
+目前支持[从火狐扩展商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)和[从Github直接安装](http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi)。
 
 ## 使用
 
