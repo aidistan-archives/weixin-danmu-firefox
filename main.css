@@ -12,7 +12,7 @@ h3 { font-size: 1.25em; margin-top: 0.25em; }
   background-color: #27cc2c;
   background-image: url("icon-o.png");
   background-repeat: no-repeat;
-  background-size: 300px 300px;
+  background-size: 200px 200px;
   background-position: top center;
 }
 
@@ -39,7 +39,7 @@ p.banner-title {
 
 .banner-btnbox {
   position: relative;
-  top: 120px;
+  top: 80px;
   text-align: center;
 }
 
@@ -53,7 +53,7 @@ p.banner-title {
     font-size: 16px;
   }
   .banner-btnbox {
-    top: 155px;
+    top: 120px;
   }
 }
 

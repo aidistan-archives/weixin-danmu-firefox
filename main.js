@@ -1,4 +1,4 @@
-// $(function() {
+$(function() {
   var colors = ['#00aeef', '#ea428a', '#f5a70d', '#9962c1', '#333333'];
 
   var baseTop = parseInt($('h1.banner-title').css('top').slice(0, -2));
@@ -28,6 +28,4 @@
       }
     );
   }
-
-
-// });
+});
