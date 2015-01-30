@@ -1,0 +1,104 @@
+/* Set head size */
+h1 { font-size: 2.00em; margin-top: 1.00em; }
+h2 { font-size: 1.50em; margin-top: 0.50em; }
+h3 { font-size: 1.25em; margin-top: 0.25em; }
+
+.am-container {
+  max-width: 640px;
+}
+
+.banner-wrapper {
+  height: 400px;
+  /*color: white;*/
+  /*background: #00aeef;*/
+}
+
+.banner {
+  position: relative;
+}
+
+.banner-icon {
+  position: absolute;
+  left: 120px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.banner img {
+  width: 400px;
+  height: 400px;
+}
+
+.banner-title {
+  margin: 0;
+  padding: 0;
+
+  position: relative;
+  top: 120px;
+  width: 100%;
+  text-align: center;
+  font-size: 48px;
+}
+
+.banner-subtitle {
+  margin: 0;
+  padding: 0;
+
+  position: relative;
+  top: 125px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+#main {
+  padding: 10px;
+}
+
+.ctl-color {
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.ctl-other {
+  padding: 9px;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+#ctl-container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+#demo-container {
+  position: relative;
+  margin: 0 auto;
+  width: 480px;
+  height: 270px;
+  border: 1px solid black;
+}
+
+.demo-bullet {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.demo-lead {
+  color: #c8c8c8;
+}
+
+#demo-bullet1 {
+  color: #333333;
+  font-size: 24px;
+  top: 100px;
+}
+
+#demo-bullet2 {
+  color: #ea428a;
+  font-size: 12px;
+  bottom: 0px;
+}

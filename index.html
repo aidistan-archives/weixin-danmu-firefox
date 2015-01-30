@@ -1,0 +1,110 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>微信弹幕火狐版</title>
+  <meta name="description" content="将网页版微信的消息即时显示在任意标签页上">
+  <meta name="keywords" content="微信, 弹幕">
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="icon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="icon.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="icon.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="icon.png">
+  <meta name="msapplication-TileColor" content="#c8c8c8">
+
+  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.2.1/css/amazeui.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="banner-wrapper">
+    <div class="banner am-container">
+      <div class="banner-icon"><img src="icon.png"></div>
+      <h1 class="banner-title">微信弹幕（Firefox版）</h1>
+      <p class="banner-subtitle">将网页版微信的消息即时显示在任意标签页上</p>
+    </div>
+  </div>
+
+  <div id="main" class="am-container">
+    <h1>安装</h1>
+    <p>目前支持<a href="https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/">从火狐扩展商店安装</a>和<a href="http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi">从Github直接安装</a>。</p>
+    <h1>使用</h1>
+    <h2>基本使用</h2>
+    <ol>
+      <li>安装插件</li>
+      <li>在火狐浏览器的任意一个标签中登陆网页版微信</li>
+      <li>打开要捕获消息的群或好友的对话框</li>
+      <li>切换到要显示弹幕的任意一个网页</li>
+      <li>在手机微信上向所选的好友或群发消息</li>
+      <li>弹幕出现！</li>
+    </ol>
+    <h2>详细说明</h2>
+    <h3>修改配置</h3>
+    <p>打开附加组件页面 (<code>Ctrl + Shift + A</code>)，点击微信弹幕的设置按钮进入附加组件详情页面，从中可以调整：</p>
+    <ul>
+      <li>弹幕的默认字体大小</li>
+      <li>开启/关闭消息通知显示</li>
+      <li>开启/关闭微信消息测试模式和弹幕发射测试模式</li>
+    </ul>
+    <h3>工具栏按钮</h3>
+    <ol>
+      <li>未侦测到网页微信时按钮呈灰色，点击按钮会打开网页微信页面</li>
+      <li>网页微信完整加载后，按钮会自动点亮，此时点击可以关闭/开启弹幕显示</li>
+      <li>弹幕发射测试模式下，点击按钮总是会自动发射随机字符串到弹幕</li>
+    </ol>
+    <h3>自定义弹幕</h3>
+    <p>目前支持自定义弹幕颜色、大小和位置，格式统一为“英文冒号 + 魔力字符”；未给定的属性将被赋予随机值。具体说明如下：</p>
+    <ol>
+      <li>英文冒号和魔力字符（效果示意中的灰色部分）不会显示在弹幕中</li>
+      <li>属性可以按照任意顺序设置，但是必须放在开头</li>
+      <li>设置字幕大小的效果可以叠加，即“:大:大:大”的效果是":大"的三倍</li>
+    </ol>
+    <h4>魔力字符</h4>
+    <div id="ctl-container">
+      <span class="ctl-color" style="background: #00aeef">蓝</span>
+      <span class="ctl-color" style="background: #ea428a">红</span>
+      <span class="ctl-color" style="background: #eed500">黄</span>
+      <span class="ctl-color" style="background: #f5a70d">橙</span>
+      <span class="ctl-color" style="background: #8bcb30">绿</span>
+      <span class="ctl-color" style="background: #9962c1">紫</span>
+      <span class="ctl-color" style="background: #333333">黑</span>
+      <span class="ctl-other" style="font-size:20px;">大</span>
+      <span class="ctl-other" style="font-size:12px;">小</span>
+      <span class="ctl-other" style="padding-top: 0; padding-bottom: 18px;">顶</span>
+      <span class="ctl-other" style="padding-top: 18px; padding-bottom: 0;">底</span>
+    </div>
+    <h4>效果示意</h4>
+    <div id="demo-container">
+      <p id="demo-bullet1" class="demo-bullet"><span class="demo-lead">:大:黑</span>Valar Morghulis</p>
+      <p id="demo-bullet2" class="demo-bullet"><span class="demo-lead">:红:底:小</span>Valar Dohaeris</p>
+    </div>
+    <h1>致谢</h1>
+    <p>本插件深受 <a href="https://github.com/Integ/WeShoot">WeShoot</a> 启发，特此感谢！</p>
+
+    <h1>历史</h1>
+    <ul>
+      <li>v1.0.0 (20150128): 基本功能上线</li>
+      <li>v1.0.1 (20150128): 兼容 wx2.qq.com</li>
+      <li>v1.0.2 (20150129): 提高组件性能</li>
+      <li>v1.1.0 (20150129): 兼容全屏模式，更多可控属性</li>
+    </ul>
+  </div>
+</body>
+</html>
