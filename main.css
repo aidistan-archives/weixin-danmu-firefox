@@ -8,11 +8,11 @@ h3 { font-size: 1.25em; margin-top: 0.25em; }
 .banner {
   position: relative;
   overflow-x: hidden;
-  height: 400px;
+  height: 300px;
   background-color: #27cc2c;
   background-image: url("icon-o.png");
   background-repeat: no-repeat;
-  background-size: 400px 400px;
+  background-size: 300px 300px;
   background-position: top center;
 }
 
@@ -28,28 +28,33 @@ h3 { font-size: 1.25em; margin-top: 0.25em; }
 }
 
 h1.banner-title {
-  top: 120px;
+  top: 60px;
   font-size: 48px;
 }
 
 p.banner-title {
-  top: 125px;
+  top: 60px;
   font-size: 20px;
-}
-
-@media screen and (max-width: 450px) {
-  h1.banner-title {
-    font-size: 32px;
-  }
-  p.banner-title {
-    font-size: 16px;
-  }
 }
 
 .banner-btnbox {
   position: relative;
-  top: 210px;
+  top: 120px;
   text-align: center;
+}
+
+@media screen and (max-width: 450px) {
+  h1.banner-title {
+    top: 80px;
+    font-size: 32px;
+  }
+  p.banner-title {
+    top: 80px;
+    font-size: 16px;
+  }
+  .banner-btnbox {
+    top: 155px;
+  }
 }
 
 .ctl-color {
