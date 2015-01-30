@@ -35,8 +35,8 @@
 </head>
 <body>
   <div class="banner">
-    <h1 class="banner-title"><span>微信弹幕（Firefox版）</span></h1>
-    <p class="banner-subtitle"><span>将网页版微信的消息即时显示在任意标签页上</span></p>
+    <h1 class="banner-title"><span>微信弹幕 Firefox 版</span></h1>
+    <p class="banner-title"><span>将网页版微信的消息即时显示在任意标签页上</span></p>
     <div class="banner-btnbox am-center">
       <a class="am-btn am-btn-danger am-round" href="http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi">直接下载</a>
       <a class="am-btn am-btn-primary am-round" href="https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/" target="_blank">官方链接</a>
@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div id="main" class="am-container">
+  <div class="am-container">
     <h1>安装</h1>
     <p>目前支持<a href="https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/">从火狐扩展商店安装</a>和<a href="http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi">从Github直接安装</a>。</p>
     <h1>使用</h1>
@@ -79,19 +79,17 @@
       <li>设置字幕大小的效果可以叠加，即“:大:大:大”的效果是":大"的三倍</li>
     </ol>
     <h4>魔力字符</h4>
-    <div id="ctl-container">
-      <span class="ctl-color" style="background: #00aeef">蓝</span>
-      <span class="ctl-color" style="background: #ea428a">红</span>
-      <span class="ctl-color" style="background: #eed500">黄</span>
-      <span class="ctl-color" style="background: #f5a70d">橙</span>
-      <span class="ctl-color" style="background: #8bcb30">绿</span>
-      <span class="ctl-color" style="background: #9962c1">紫</span>
-      <span class="ctl-color" style="background: #333333">黑</span>
-      <span class="ctl-other" style="font-size:20px;">大</span>
-      <span class="ctl-other" style="font-size:12px;">小</span>
-      <span class="ctl-other" style="padding-top: 0; padding-bottom: 18px;">顶</span>
-      <span class="ctl-other" style="padding-top: 18px; padding-bottom: 0;">底</span>
-    </div>
+    <div class="ctl-color" style="background: #00aeef">蓝</div>
+    <div class="ctl-color" style="background: #ea428a">红</div>
+    <div class="ctl-color" style="background: #eed500">黄</div>
+    <div class="ctl-color" style="background: #f5a70d">橙</div>
+    <div class="ctl-color" style="background: #8bcb30">绿</div>
+    <div class="ctl-color" style="background: #9962c1">紫</div>
+    <div class="ctl-color" style="background: #333333">黑</div>
+    <div class="ctl-other" style="font-size:20px;">大</div>
+    <div class="ctl-other" style="font-size:12px;">小</div>
+    <div class="ctl-other" style="padding-top: 0; padding-bottom: 18px;">顶</div>
+    <div class="ctl-other" style="padding-top: 18px; padding-bottom: 0;">底</div>
     <h4>效果示意</h4>
     <div id="demo-container">
       <p id="demo-bullet1" class="demo-bullet"><span class="demo-lead">:大:黑</span>Valar Morghulis</p>
@@ -110,6 +108,6 @@
   </div>
 
   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="main.js"></script>
+  <!-- <script src="main.js"></script> -->
 </body>
 </html>
