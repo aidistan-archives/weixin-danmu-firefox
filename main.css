@@ -27,29 +27,29 @@ h3 { font-size: 1.25em; margin-top: 0.25em; }
   overflow-x: hidden;
 }
 
-.banner h1 {
+h1.banner-title {
   top: 120px;
   font-size: 48px;
 }
 
-.banner p {
+p.banner-title {
   top: 125px;
   font-size: 20px;
 }
 
 @media screen and (max-width: 450px) {
-  .banner h1 {
+  h1.banner-title {
     font-size: 32px;
   }
-  .banner p {
+  p.banner-title {
     font-size: 16px;
   }
 }
 
 .banner-btnbox {
   position: relative;
-  top: 225px;
-  width: 300px;
+  top: 210px;
+  text-align: center;
 }
 
 .ctl-color {

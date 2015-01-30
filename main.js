@@ -1,30 +1,27 @@
 // $(function() {
   var colors = ['#00aeef', '#ea428a', '#f5a70d', '#9962c1', '#333333'];
+  var bullet = $('p.banner-title');
 
-  start($('.banner-title'));
-  start($('.banner-subtitle'));
+  // Setup
+  bullet.css({
+    width: bullet.children().width(),
+    'text-shadow': '0 0 8px #ffffff'
+  });
+  // Start scrolling
+  shoot(bullet);
 
-  function start(obj) {
-    // Setup
-    obj.css({
-      width: obj.children().width(),
-      'text-shadow': '0 0 8px #ffffff'
-    });
-    // Start scrolling
-    scroll(obj);
-  }
-
-  function scroll(obj) {
+  function shoot(bullet) {
     // Reset
-    obj.css({
+    bullet.css({
       left: window.window.innerWidth,
+      top: 125 + Math.floor(Math.random() * 75),
       color: colors[Math.floor(Math.random() * colors.length)]
     });
     // Animate
-    obj.animate({
-        left: -obj.width()
-      }, ~~(Math.random() * 10000) + 10000, 'linear', function() {
-        scroll(obj);
+    bullet.animate({
+        left: -bullet.width()
+      }, ~~(Math.random() * 5000) + 10000, 'linear', function() {
+        shoot(bullet);
       }
     );
   }
