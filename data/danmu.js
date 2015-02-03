@@ -61,17 +61,15 @@ port.on('bullet', function(msg) {
     if (fontSizeCtl.test(msg.content.text)) {
       switch (match = fontSizeCtl.exec(msg.content.text)[1]) {
         case '大':
-          size *= 1.3;
-          size = (size > fontSize*4) ? fontSize*4 :
-                 (size < fontSize/2) ? fontSize/2 : size;
+          size *= 1.5;
+          size = (size > window.innerHeight / 4) ? window.innerHeight / 4 : size
           break;
         case '小':
-          size /= 1.3;
-          size = (size > fontSize*4) ? fontSize*4 :
-                 (size < fontSize/2) ? fontSize/2 : size;
+          size /= 1.5;
+          size = (size < 10) ? 10 : size;
           break;
         case '巨':
-          size = window.innerHeight / 2;
+          size = window.innerHeight / 4;
           break;
       }
       msg.content.text = msg.content.text.replace(fontSizeCtl, '');
