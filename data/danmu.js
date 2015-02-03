@@ -10,10 +10,11 @@ var fontSize = 24;
   green: '#8bcb30',
   purple: '#9962c1',
   black: '#333333'
+  white: '#eeeeee'
 */
-var allCtlPtns   = RegExp("^:([蓝红黄橙绿紫黑巨大小顶底])");
-var fontColors   = ['#00aeef', '#ea428a', '#eed500', '#f5a70d', '#8bcb30', '#9962c1', '#333333'];
-var fontColorCtl = RegExp("^:([蓝红黄橙绿紫黑])");
+var allCtlPtns   = RegExp("^:([蓝红黄橙绿紫黑白巨大小顶底])");
+var fontColors   = ['#00aeef', '#ea428a', '#eed500', '#f5a70d', '#8bcb30', '#9962c1', '#333333', '#eeeeee'];
+var fontColorCtl = RegExp("^:([蓝红黄橙绿紫黑白])");
 var fontSizeCtl  = RegExp("^:([巨大小])");
 var positionCtl  = RegExp("^:([顶底])");
 
@@ -52,6 +53,9 @@ port.on('bullet', function(msg) {
           break;
         case '黑':
           color = '#333333';
+          break;
+        case '白':
+          color = '#eeeeee';
           break;
       }
       msg.content.text = msg.content.text.replace(fontColorCtl, '');
