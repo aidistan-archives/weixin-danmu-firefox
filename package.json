@@ -10,8 +10,15 @@
   "license": "MIT",
   "version": "1.1.1",
   "preferences": [{
+    "name": "disableShooting",
+    "title": "暂停弹幕显示",
+    "description": "所有微信消息不再触发弹幕",
+    "type": "bool",
+    "value": false
+  },
+  {
     "name": "fontSize",
-    "title": "弹幕字体大小",
+    "title": "弹幕默认大小",
     "type": "integer",
     "value": 24
   },

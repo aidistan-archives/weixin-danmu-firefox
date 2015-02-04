@@ -1,0 +1,7 @@
+.slide:after {
+  display: none;
+}
+
+#thanks li {
+  margin-left: 2em;
+}
