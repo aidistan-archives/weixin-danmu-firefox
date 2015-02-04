@@ -1,7 +1,9 @@
 (function(){
-  $('#join input').keypress(function(e) {
+  $('#join textarea').keypress(function(e) {
     if (e.key == 'Enter') {
-      $('#join form').replaceWith('<img height=500 src="' + $('#join input').val() + '"/>');
+      $('#join').addClass('cover').addClass('h');
+      $('#join h2').hide();
+      $('#join form').replaceWith('<img src="' + $(this).val() + '" /></div>');
     }
   });
 }).call(this);
