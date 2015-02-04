@@ -40,7 +40,7 @@ function captureMessage() {
 
   // Handle image message
   if ($('.chatItemContent:last .img_wrap img').length) {
-    img = 'https://wx.qq.com' + $('.chatItemContent:last .img_wrap img').attr('src');
+    img = 'https://wx.qq.com' + $('.chatItemContent:last .img_wrap img').attr('rawsrc');
   } else if ($('.chatItemContent:last .customEmoji').length) {
     img = 'https://wx.qq.com' + $('.chatItemContent:last .customEmoji').attr('src');
   } else {
