@@ -61,9 +61,8 @@
 
       <nav class="scrollspy-nav" data-am-scrollspy-nav="{offsetTop: 45}" data-am-sticky>
         <ul class="am-text-center">
-          <li><a href="#top" style="padding:0;"><img src="icon.png" width=35 height=35></a></li>
-          <li><a href="#installation">安装</a></li>
-          <li><a href="#get-started">启用</a></li>
+          <li><a href="#top" style="padding: 5px 10px;"><img src="icon.png" width=36 height=36></a></li>
+          <li><a href="#get-started">安装</a></li>
           <li><a href="#shoot-bullet">发射</a></li>
           <li><a href="#faq">问答</a></li>
           <li><a href="#more-info">更多</a></li>
@@ -71,13 +70,10 @@
       </nav>
     </div>
 
-    <h2 id="installation">安装弹幕</h1>
-    <p>目前支持<a href="https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/">从火狐扩展商店安装</a>和<a href="http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi">从Github直接安装</a>。</p>
-
-    <h2 id="get-started">启用弹幕</h1>
+    <h2 id="get-started">安装插件</h1>
     <h3>基本步骤</h2>
     <ol>
-      <li>安装插件</li>
+      <li>从<a href="https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/">火狐扩展商店</a>或<a href="http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi">Github</a>安装此插件</li>
       <li>在火狐浏览器的任意一个标签页中登陆网页版微信</li>
       <li>打开要捕获消息的群或好友的对话框</li>
       <li>切换到要显示弹幕的任意一个网页</li>
@@ -91,7 +87,7 @@
       <li>网页微信完整加载后，按钮会自动点亮，此时点击可以关闭/开启弹幕显示</li>
       <li>弹幕发射测试模式下，点击按钮总是会自动发射随机字符串到弹幕</li>
     </ul>
-    <h4>修改插件默认设置</h3>
+    <h4>修改默认设置</h3>
     <p>打开附加组件页面 (<code>Ctrl + Shift + A</code>)，点击微信弹幕的设置按钮进入附加组件详情页面，从中可以：</p>
     <ul>
       <li>调整弹幕的默认字体大小</li>
@@ -101,7 +97,7 @@
     </ul>
 
     <h2 id="shoot-bullet">发射弹幕</h2>
-    <p>微信发送的任意文字、表情、图片，默认会以固定大小、随机颜色、随机位置显示在屏幕上。（部分表情因网页微信不支持，无法显示；图片功能下个版本实现）</p>
+    <p>微信发送的任意文字、表情、图片，默认会以固定大小、随机颜色、随机位置显示在屏幕上。（部分表情在网页微信上不会显示，因此无法做成弹幕）</p>
     <p>目前支持自定义弹幕的颜色、大小和位置，格式为<code>:字</code>，即“英文冒号 + 魔力字符”。更多说明如下：</p>
     <ul>
       <li>英文冒号和魔力字符（效果示意中的灰色部分）不会显示在弹幕中</li>
@@ -177,6 +173,13 @@
     </ul>
     <h3 id="comments">留言簿</h3>
     <div class="ds-thread" data-thread-key="post-20150129" data-title="微信弹幕火狐版上线啦！" data-url="http://adome.aidistan.net/2015/01/29/weixin-danmu/"></div>
+
+    <footer class="am-footer am-footer-default">
+      <div class="am-footer-miscs">
+        <p>Developed by <a href="https://github.com/aidistan/" target="_blank" >Aidi Stan</a>.</p>
+        <p>CopyRight &copy; 2015 <a href="http://adome.aidistan.net/" target="_blank">Aidi Stan</a>. Licensed under <a href="https://github.com/aidistan/firefox-weixin-danmu/blob/master/LICENSE" target="_blank">the MIT license</a>.</p>
+      </div>
+    </footer>
   </div>
 
   <script type="text/javascript">

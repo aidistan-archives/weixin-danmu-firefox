@@ -24,8 +24,8 @@ h4 { font-size: 1.25em; margin-top: 0.25em; }
 
 .scrollspy-nav ul { margin: 0; padding: 0; }
 .scrollspy-nav li { display: inline-block; list-style: none; }
-.scrollspy-nav a { color:#777; padding:10px 20px; display:inline-block; }
-.scrollspy-nav a.am-active { color: #333; font-weight: 700; }
+.scrollspy-nav a { color:#777; padding:10px 20px; display:inline-block; margin-bottom: 3px; }
+.scrollspy-nav a.am-active { color: #333; font-weight: 700; margin-bottom: 0; border-bottom: 3px solid #0F9AE0; }
 
 .ctl-color {
   display: inline-block;
