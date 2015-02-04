@@ -1,5 +1,6 @@
 var port = self.port;
 var fontSize = { min: 10, ref: 24, max: window.innerHeight / 4 };
+var imageSize = { width: window.innerWidth/3, height: window.innerHeight/3 };
 /*
   Predefined colors
 
@@ -97,7 +98,11 @@ port.on('bullet', function(msg) {
     bullet = $('<div>' + msg.content.text.replace(/<img/g, '<img height=' + size) + '</div>');
   }
   else {
-    bullet = $('<div><img height=' + fontSize.max + ' src="' + msg.content.image + '" /></div>');
+    var img = $('<img src="' + msg.content.image + '" />').css({
+      'max-width': imageSize.width,
+      'max-height': imageSize.height
+    });
+    bullet = $('<div></div>').append(img);
   }
   bullet.addClass('danmu-bullet').css({
     color: color,
