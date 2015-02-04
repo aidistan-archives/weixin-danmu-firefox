@@ -26,13 +26,17 @@ function captureMessage() {
   // Handle text message
   if ($('.chatItemContent:last pre img').length) {
     $('.chatItemContent:last pre img').each(function() {
-      var src = $(this).attr('src');
-      $(this).attr('src', 'https://wx.qq.com' + src);
+      if (/^\//.test($(this).attr('src'))) {
+        $(this).attr('src', 'https://wx.qq.com' + $(this).attr('src'));
+      }
     });
-    text = $('.chatItemContent:last pre').html();
-  } else {
-    text = $('.chatItemContent:last pre').text();
   }
+  if ($('.chatItemContent:last pre span.emoji').length) {
+    $('.chatItemContent:last pre span.emoji').each(function() {
+      $(this).replaceWith('<img height=24 src="http://cdn.bootcss.com/twemoji/1.2.0/svg/' + /emoji(\w+)/.exec(this.className)[1] + '.svg" />');
+    });
+  }
+  text = $('.chatItemContent:last pre').html();
 
   // Handle image message
   if ($('.chatItemContent:last .img_wrap img').length) {
