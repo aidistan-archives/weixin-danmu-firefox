@@ -1,5 +1,5 @@
 var port = self.port;
-var fontSize = 24;
+var fontSize = { min: 10, ref: 24, max: window.innerHeight / 4 };
 /*
   Predefined colors
 
@@ -19,12 +19,12 @@ var fontSizeCtl  = RegExp("^:([巨大小])");
 var positionCtl  = RegExp("^:([顶底])");
 
 port.on("fontSize", function(size) {
-  fontSize = size;
+  fontSize.ref = size;
 });
 
 port.on('bullet', function(msg) {
   // Defaults
-  var size   = fontSize;
+  var size   = fontSize.ref;
   var color  = fontColors[Math.floor(Math.random() * fontColors.length)];
   var top    = 'auto';
   var bottom = 'auto';
@@ -66,14 +66,14 @@ port.on('bullet', function(msg) {
       switch (fontSizeCtl.exec(msg.content.text)[1]) {
         case '大':
           size *= 1.5;
-          size = (size > window.innerHeight / 4) ? window.innerHeight / 4 : size;
+          size = (size > fontSize.max) ? fontSize.max : size;
           break;
         case '小':
           size /= 1.5;
-          size = (size < 10) ? 10 : size;
+          size = (size < fontSize.min) ? fontSize.min : size;
           break;
         case '巨':
-          size = window.innerHeight / 4;
+          size = fontSize.max;
           break;
       }
       msg.content.text = msg.content.text.replace(fontSizeCtl, '');
@@ -91,9 +91,15 @@ port.on('bullet', function(msg) {
     }
   }
 
-
   // Make bullet
-  var bullet = $('<div>' + msg.content.text + '</div>').addClass('danmu-bullet').css({
+  var bullet;
+  if (msg.content.image === '') {
+    bullet = $('<div>' + msg.content.text.replace(/<img/g, '<img height=' + size) + '</div>');
+  }
+  else {
+    bullet = $('<div><img height=' + fontSize.max + ' src="' + msg.content.image + '" /></div>');
+  }
+  bullet.addClass('danmu-bullet').css({
     color: color,
     'font-size': size,
     'font-weight': 'bold',
