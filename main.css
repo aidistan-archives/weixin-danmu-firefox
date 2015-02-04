@@ -16,7 +16,7 @@ h4 { font-size: 1.25em; margin-top: 0.25em; }
 
 .scrollspy-nav {
   width:100%;
-  padding:0 10px;
+  padding:0;
   background:#fff;
   border-top: 1px solid #E5E5E5;
   border-bottom: 1px solid #E5E5E5;
@@ -26,6 +26,10 @@ h4 { font-size: 1.25em; margin-top: 0.25em; }
 .scrollspy-nav li { display: inline-block; list-style: none; }
 .scrollspy-nav a { color:#777; padding:10px 20px; display:inline-block; margin-bottom: 3px; }
 .scrollspy-nav a.am-active { color: #333; font-weight: 700; margin-bottom: 0; border-bottom: 3px solid #0F9AE0; }
+
+@media screen and (max-width: 385px) {
+  .scrollspy-nav a { padding:10px 10px; }
+}
 
 .ctl-color {
   display: inline-block;
