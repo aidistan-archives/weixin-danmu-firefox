@@ -4,7 +4,7 @@ var last = '';
 new MutationObserver(function() {
   var msg = captureMessage();
   if (msg.id && msg.id !== last) {
-    port.emit('notify', { title: '捕获消息', text: msg.content.text })
+    port.emit('notify', { title: '捕获消息', text: msg.content.text });
     port.emit('bullet', msg);
     last = msg.id;
   }
@@ -21,21 +21,23 @@ new MutationObserver(function() {
   };
 */
 function captureMessage() {
+  var text, img;
+
   if ($('.chatItemContent:last pre img').length) { // Text msg with Emoji
     $('.chatItemContent:last pre img').each(function() {
       var src = $(this).attr('src');
       $(this).attr('src', 'https://wx.qq.com' + src);
     });
-    var text = $('.chatItemContent:last pre').html();
+    text = $('.chatItemContent:last pre').html();
   } else {
-    var text = $('.chatItemContent:last pre').text();
+    text = $('.chatItemContent:last pre').text();
   }
   if ($('.chatItemContent:last .img_wrap img').length) { // Image msg
-    var img = 'https://wx.qq.com' + $('.chatItemContent:last .img_wrap img').attr('src');
+    img = 'https://wx.qq.com' + $('.chatItemContent:last .img_wrap img').attr('src');
   } else if ($('.chatItemContent:last .customEmoji').length) {
-    var img = 'https://wx.qq.com' + $('.chatItemContent:last .customEmoji').attr('src');
+    img = 'https://wx.qq.com' + $('.chatItemContent:last .customEmoji').attr('src');
   } else {
-    var img = '';
+    img = '';
   }
 
   var msg = {

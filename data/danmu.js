@@ -63,10 +63,10 @@ port.on('bullet', function(msg) {
 
     // Size controls
     if (fontSizeCtl.test(msg.content.text)) {
-      switch (match = fontSizeCtl.exec(msg.content.text)[1]) {
+      switch (fontSizeCtl.exec(msg.content.text)[1]) {
         case '大':
           size *= 1.5;
-          size = (size > window.innerHeight / 4) ? window.innerHeight / 4 : size
+          size = (size > window.innerHeight / 4) ? window.innerHeight / 4 : size;
           break;
         case '小':
           size /= 1.5;
@@ -102,7 +102,7 @@ port.on('bullet', function(msg) {
   });
 
   // Insert first to get proper width and height
-  var fullElement = document.mozFullScreenElement
+  var fullElement = document.mozFullScreenElement;
   bullet.hide().appendTo(fullElement ? $(fullElement) : $('body'));
   if (top == 'auto' && bottom == 'auto') {
     top = ~~(Math.random() * (window.innerHeight - bullet.height()));
@@ -129,5 +129,5 @@ port.on('bullet', function(msg) {
     }
   );
 
-  port.emit('notify', { title: '发射弹幕', text: bullet.html() })
+  port.emit('notify', { title: '发射弹幕', text: bullet.html() });
 });
