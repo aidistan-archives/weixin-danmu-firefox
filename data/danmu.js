@@ -13,13 +13,13 @@ var imageSize = { width: window.innerWidth/3, height: window.innerHeight/3 };
   black: '#333333'
   white: '#eeeeee'
 */
-var allCtlPtns   = RegExp("^:([蓝红黄橙绿紫黑白巨大小顶底])");
+var allCtlPtns   = RegExp('^:([蓝红黄橙绿紫黑白巨大小顶底])');
 var fontColors   = ['#00aeef', '#ea428a', '#eed500', '#f5a70d', '#8bcb30', '#9962c1', '#333333', '#eeeeee'];
-var fontColorCtl = RegExp("^:([蓝红黄橙绿紫黑白])");
-var fontSizeCtl  = RegExp("^:([巨大小])");
-var positionCtl  = RegExp("^:([顶底])");
+var fontColorCtl = RegExp('^:([蓝红黄橙绿紫黑白])');
+var fontSizeCtl  = RegExp('^:([巨大小])');
+var positionCtl  = RegExp('^:([顶底])');
 
-port.on("fontSize", function(size) {
+port.on('fontSize', function(size) {
   fontSize.ref = size;
 });
 
