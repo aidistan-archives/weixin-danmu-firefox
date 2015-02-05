@@ -4,7 +4,6 @@ var last = '';
 new MutationObserver(function() {
   var msg = captureMessage();
   if (msg.id && msg.id !== last) {
-    port.emit('notify', { title: '捕获消息', text: msg.content.text });
     port.emit('bullet', msg);
     last = msg.id;
   }

@@ -139,6 +139,4 @@ port.on('bullet', function(msg) {
       }
     }
   );
-
-  port.emit('notify', { title: '发射弹幕', text: bullet.html() });
 });
