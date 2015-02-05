@@ -8,7 +8,7 @@ module.exports = (grunt) ->
       options:
         livereload: true
       all:
-        files: ['*.html', '*.css']
+        files: ['*']
     connect:
       server:
         options:

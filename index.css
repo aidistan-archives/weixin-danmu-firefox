@@ -75,3 +75,5 @@ h4 { font-size: 1.25em; margin-top: 0.25em; }
   font-size: 12px;
   bottom: 0px;
 }
+
+.ds-waiting:after { content: '正在载入多说评论插件...'; }

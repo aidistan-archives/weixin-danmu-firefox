@@ -31,7 +31,7 @@
   <meta name="msapplication-TileColor" content="#c8c8c8">
 
   <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.2.1/css/amazeui.min.css">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="index.css">
 
   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdn.amazeui.org/amazeui/2.2.1/js/amazeui.min.js"></script>
@@ -59,7 +59,7 @@
         <a class="am-btn am-btn-warning am-round" href="https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/" target="_blank">火狐商店</a>
       </p>
 
-      <nav class="scrollspy-nav" data-am-scrollspy-nav="{offsetTop: 45}" data-am-sticky>
+      <nav class="scrollspy-nav" data-am-sticky>
         <ul class="am-text-center">
           <li><a href="#top" style="padding: 5px 10px;"><img src="icon.png" width=36 height=36></a></li>
           <li><a href="#get-started">安装</a></li>
@@ -130,7 +130,7 @@
       <ul>
         <li><b>传统幻灯片</b>可以导出PDF，用浏览器直接播放</li>
         <li>推荐使用<b>网页幻灯片</b>，<a href="http://shwr.me/" target="_blank">Shower</a> 和 <a href="http://imakewebthings.com/deck.js/" target="_blank">deck.js</a> 都是不错的引擎</li>
-        <li>HTML5已原生支持<b>视频</b>的播放，可用<code>vidio</code>标签把视频嵌在网页里，也可直接把文件拖进浏览器播放。建议使用MP4格式，转码可以用<a href="http://mediacoder.com.cn/" target="_blank">MediaCoder</a>，最好用的开源转码软件，没有之一</li>
+        <li>HTML5已原生支持<b>视频</b>的播放，可用<code>vidio</code>标签把视频嵌在网页里，也可直接把文件拖进浏览器播放。建议使用MP4格式，转码可以用<a href="http://mediacoder.com.cn/" target="_blank">MediaCoder</a>，最好用的开源转码软件，没有之一（全屏问题请<a href="#faq_video_fullscreen">移步至此</a>）</li>
         <li>什么！你问<b>音频</b>怎么办？……别闹了</li>
       </ul>
       如果你有特殊需求，自己尝试使用但未成功，请在<a href="#comments">讨论区</a>中详细说明情况，我会尽量帮忙。
@@ -163,7 +163,7 @@
     <h2 id="more-info">更多信息</h2>
     <h3>致谢</h3>
     <p>本插件深受 <a href="https://github.com/Integ/WeShoot">WeShoot</a> 启发，特此感谢！</p>
-    <h3>历史</h3>
+    <h3>历史版本</h3>
     <ul>
       <li>v1.0.0 (20150128): 基本功能上线</li>
       <li>v1.0.1 (20150128): 兼容 wx2.qq.com</li>
@@ -172,7 +172,7 @@
       <li><a href="weixin-danmu-1.1.1.xpi">v1.1.1 (20150203)</a>: 增强用户体验，新增白色弹幕</li>
       <li><a href="weixin-danmu-1.2.0.xpi">v1.2.0 (20150205)</a>: 全面支持表情和图片</li>
     </ul>
-    <h3 id="comments">讨论区</h3>
+    <h3 id="comments">参与讨论</h3>
     <div class="ds-thread" data-thread-key="post-20150129" data-title="微信弹幕火狐版上线啦！" data-url="http://adome.aidistan.net/2015/01/29/weixin-danmu/"></div>
 
     <footer class="am-footer am-footer-default">
@@ -183,6 +183,7 @@
     </footer>
   </div>
 
+  <script src="index.js"></script>
   <script type="text/javascript">
     var duoshuoQuery = {short_name: "adome"};
     (function() {
