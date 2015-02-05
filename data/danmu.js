@@ -1,6 +1,13 @@
 var port = self.port;
-var fontSize = { min: 10, ref: 24, max: window.innerHeight / 4 };
+var fontSize = { min: 10, ref: 24, max: window.innerHeight/4 };
 var imageSize = { width: window.innerWidth/3, height: window.innerHeight/3 };
+
+$(window).resize(function() {
+  fontSize.max = window.innerHeight/4;
+  imageSize.width = window.innerWidth/3;
+  imageSize.height = window.innerHeight/3;
+});
+
 /*
   Predefined colors
 
