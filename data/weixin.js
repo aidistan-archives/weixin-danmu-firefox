@@ -1,6 +1,12 @@
 var port = self.port;
 var last = '';
 
+// Send heartbeats
+setInterval(function() {
+  port.emit('heartbeat', true);
+}, 3000);
+
+// Listen to DOM mutations
 new MutationObserver(function() {
   var msg = captureMessage();
   if (msg.id && msg.id !== last) {
