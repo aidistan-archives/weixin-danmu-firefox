@@ -1,5 +1,6 @@
 var port = self.port;
 var last = '';
+var src_prefix = window.location.protocol + '//' + window.location.host;
 
 // Send heartbeats
 setInterval(function() {
@@ -32,7 +33,7 @@ function captureMessage() {
   if ($('.chatItemContent:last pre img').length) {
     $('.chatItemContent:last pre img').each(function() {
       if (/^\//.test($(this).attr('src'))) {
-        $(this).attr('src', 'https://wx.qq.com' + $(this).attr('src'));
+        $(this).attr('src', src_prefix + $(this).attr('src'));
       }
     });
   }
@@ -45,9 +46,9 @@ function captureMessage() {
 
   // Handle image message
   if ($('.chatItemContent:last .img_wrap img').length) {
-    img = 'https://wx.qq.com' + $('.chatItemContent:last .img_wrap img').attr('rawsrc');
+    img = src_prefix + $('.chatItemContent:last .img_wrap img').attr('rawsrc');
   } else if ($('.chatItemContent:last .customEmoji').length) {
-    img = 'https://wx.qq.com' + $('.chatItemContent:last .customEmoji').attr('src');
+    img = src_prefix + $('.chatItemContent:last .customEmoji').attr('src');
   } else {
     img = '';
   }
@@ -57,7 +58,7 @@ function captureMessage() {
     id: $('.chatItem:last').attr('un'),
     user: {
       name: $('.chatItemContent:last .avatar').attr('title'),
-      avatar: 'https://wx.qq.com' + $('.chatItemContent:last .avatar').attr('src')
+      avatar: src_prefix + $('.chatItemContent:last .avatar').attr('src')
     },
     time: $('.chatItem:last .time').text().trim(),
     content: {
