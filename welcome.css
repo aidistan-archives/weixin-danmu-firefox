@@ -25,6 +25,6 @@ nav {
   z-index: 100;
 }
 
-body section div { padding: 0 30px; }
+body section { padding: 0 40px; }
 body section:nth-child(odd)  div { text-align: left; }
 body section:nth-child(even) div { text-align: right; }

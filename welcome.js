@@ -13,7 +13,7 @@ $(function(){
   })
 
   var Hammer = $.AMUI.Hammer;
-  var hammertime = new Hammer(document.getElementsByTagName('body'));
+  var hammertime = new Hammer(document.getElementById('main'));
   hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
   hammertime.on('swipeup', slideUp).on('swipedown', slideDown);
 
