@@ -4,7 +4,9 @@ var src_prefix = window.location.protocol + '//' + window.location.host;
 
 // Send heartbeats
 setInterval(function() {
-  port.emit('heartbeat', true);
+  if ($('#chatMainPanel').length > 0) {
+    port.emit('heartbeat', true);
+  }
 }, 3000);
 
 // Listen to DOM mutations
