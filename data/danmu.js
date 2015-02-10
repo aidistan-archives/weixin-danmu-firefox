@@ -1,46 +1,47 @@
-var port = self.port;
-var fontSize = { min: 10, ref: 24, max: window.innerHeight/4 };
-var imageSize = { width: window.innerWidth/3, height: window.innerHeight/3 };
+var size = {
+  font:  { min: 10, ref: 24, max: window.innerHeight/4 },
+  image: { width: window.innerWidth/3, height: window.innerHeight/3 }
+}
+
+var colors   = [
+  '#00aeef', // blue
+  '#ea428a', // red
+  '#eed500', // yellow
+  '#f5a70d', // orange
+  '#8bcb30', // green
+  '#9962c1', // purple
+  '#333333', // black
+  '#e8e8e8'  // white
+];
+
+var ctlptn = {
+  all: RegExp('^:([蓝红黄橙绿紫黑白巨大小顶底])'),
+  color: RegExp('^:([蓝红黄橙绿紫黑白])'),
+  size: RegExp('^:([巨大小])'),
+  position: RegExp('^:([顶底])')
+}
 
 $(window).resize(function() {
-  fontSize.max = window.innerHeight/4;
-  imageSize.width = window.innerWidth/3;
-  imageSize.height = window.innerHeight/3;
+  size.font.max     = window.innerHeight / 4;
+  size.image.width  = window.innerWidth / 3;
+  size.image.height = window.innerHeight / 3;
 });
 
-/*
-  Predefined colors
-
-  blue: '#00aeef',
-  red: '#ea428a',
-  yellow: '#eed500',
-  orange: '#f5a70d',
-  green: '#8bcb30',
-  purple: '#9962c1',
-  black: '#333333'
-  white: '#eeeeee'
-*/
-var allCtlPtns   = RegExp('^:([蓝红黄橙绿紫黑白巨大小顶底])');
-var fontColors   = ['#00aeef', '#ea428a', '#eed500', '#f5a70d', '#8bcb30', '#9962c1', '#333333', '#eeeeee'];
-var fontColorCtl = RegExp('^:([蓝红黄橙绿紫黑白])');
-var fontSizeCtl  = RegExp('^:([巨大小])');
-var positionCtl  = RegExp('^:([顶底])');
-
-port.on('fontSize', function(size) {
-  fontSize.ref = size;
+self.port.on('setup', function(settings) {
+  size.font.ref = settings.size.font.ref;
 });
 
-port.on('bullet', function(msg) {
+self.port.on('bullet', function(msg) {
   // Defaults
-  var size   = fontSize.ref;
-  var color  = fontColors[Math.floor(Math.random() * fontColors.length)];
+  var fontSize   = size.font.ref;
+  var color  = colors[Math.floor(Math.random() * colors.length)];
   var top    = 'auto';
   var bottom = 'auto';
 
-  while (allCtlPtns.test(msg.content.text)) {
+  while (ctlptn.all.test(msg.content.text)) {
     // Color controls
-    if (fontColorCtl.test(msg.content.text)) {
-      switch (fontColorCtl.exec(msg.content.text)[1]) {
+    if (ctlptn.color.test(msg.content.text)) {
+      switch (ctlptn.color.exec(msg.content.text)[1]) {
         case '蓝':
           color = '#00aeef';
           break;
@@ -66,54 +67,54 @@ port.on('bullet', function(msg) {
           color = '#eeeeee';
           break;
       }
-      msg.content.text = msg.content.text.replace(fontColorCtl, '');
+      msg.content.text = msg.content.text.replace(ctlptn.color, '');
     }
 
     // Size controls
-    if (fontSizeCtl.test(msg.content.text)) {
-      switch (fontSizeCtl.exec(msg.content.text)[1]) {
+    if (ctlptn.size.test(msg.content.text)) {
+      switch (ctlptn.size.exec(msg.content.text)[1]) {
         case '大':
-          size *= 1.5;
-          size = (size > fontSize.max) ? fontSize.max : size;
+          fontSize *= 1.5;
+          fontSize = (fontSize > size.font.max) ? size.font.max : fontSize;
           break;
         case '小':
-          size /= 1.5;
-          size = (size < fontSize.min) ? fontSize.min : size;
+          fontSize /= 1.5;
+          fontSize = (fontSize < size.font.min) ? size.font.min : fontSize;
           break;
         case '巨':
-          size = fontSize.max;
+          fontSize = size.font.max;
           break;
       }
-      msg.content.text = msg.content.text.replace(fontSizeCtl, '');
+      msg.content.text = msg.content.text.replace(ctlptn.size, '');
     }
 
     // Position controls
-    if (positionCtl.test(msg.content.text)) {
-      if (positionCtl.exec(msg.content.text)[1] == '顶') {
+    if (ctlptn.position.test(msg.content.text)) {
+      if (ctlptn.position.exec(msg.content.text)[1] == '顶') {
         top = 12;
       }
       else {
         bottom = 12;
       }
-      msg.content.text = msg.content.text.replace(positionCtl, '');
+      msg.content.text = msg.content.text.replace(ctlptn.position, '');
     }
   }
 
   // Make bullet
   var bullet;
   if (msg.content.image === '') {
-    bullet = $('<div>' + msg.content.text.replace(/<img/g, '<img height=' + size) + '</div>');
+    bullet = $('<div>' + msg.content.text.replace(/<img/g, '<img height=' + fontSize) + '</div>');
   }
   else {
     var img = $('<img src="' + msg.content.image + '" />').css({
-      'max-width': imageSize.width,
-      'max-height': imageSize.height
+      'max-width': size.image.width,
+      'max-height': size.image.height
     });
     bullet = $('<div></div>').append(img);
   }
   bullet.addClass('danmu-bullet').css({
     color: color,
-    'font-size': size,
+    'font-size': fontSize,
     'font-weight': 'bold',
     'white-space': 'nowrap',
     'overflow-y': 'visible'
