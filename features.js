@@ -1,14 +1,18 @@
 $(function(){
   var slides = $('section.slide');
-  var slide = { no: 0, max: slides.size() - 1 }
+  var slide = { no: 0, max: slides.size() - 1 };
 
   resizeSlide();
   $(window).scrollTop(0).resize(resizeSlide);
 
+  var lastWheelTimeStamp;
   $('body').click(function() {
     slideUp();
   }).on('wheel', function(e) {
-    e.originalEvent.deltaY > 0 ? slideUp(): slideDown();
+    if (!lastWheelTimeStamp || e.timeStamp - lastWheelTimeStamp > 500) {
+      lastWheelTimeStamp = e.timeStamp;
+      e.originalEvent.deltaY > 0 ? slideUp(): slideDown();
+    }
     return false;
   })
 
