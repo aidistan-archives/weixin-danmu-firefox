@@ -111,6 +111,9 @@ self.port.on('bullet', function(msg) {
       'max-height': size.image.height
     });
     bullet = $('<div></div>').append(img);
+
+    // To fix image position issue
+    fontSize = size.image.height;
   }
   bullet.addClass('danmu-bullet').css({
     color: color,
