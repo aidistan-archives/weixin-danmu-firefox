@@ -23,9 +23,9 @@
 
 ## 变更
 
-### v1.2.0 (20150205)
+### v1.2.2 (20150208)
 
-- 全面支持QQ表情和Emoji表情
-- 支持图片弹幕
+- 兼容 *.wechat.com
+- 为通过完全审核而修订部分代码
 
 请查看[变更历史](https://github.com/aidistan/firefox-weixin-danmu/blob/master/HISTORY.md)了解更多。
