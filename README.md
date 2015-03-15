@@ -23,9 +23,9 @@
 
 ## 变更
 
-### v1.2.2 (20150208)
+### v1.2.3 (20150312)
 
-- 兼容 *.wechat.com
-- 为通过完全审核而修订部分代码
+- 更智能地检测网页版微信
+- 修复一处CSS地址错误
 
 请查看[变更历史](https://github.com/aidistan/firefox-weixin-danmu/blob/master/HISTORY.md)了解更多。
