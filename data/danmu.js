@@ -15,10 +15,10 @@ var colors   = [
 ];
 
 var ctlptn = {
-  all: RegExp('^:([蓝红黄橙绿紫黑白巨大小顶底])'),
-  color: RegExp('^:([蓝红黄橙绿紫黑白])'),
-  size: RegExp('^:([巨大小])'),
-  position: RegExp('^:([顶底])')
+  all: RegExp('^[:：]([蓝红黄橙绿紫黑白巨大小顶底])'),
+  color: RegExp('^[:：]([蓝红黄橙绿紫黑白])'),
+  size: RegExp('^[:：]([巨大小])'),
+  position: RegExp('^[:：]([顶底])')
 }
 
 $(window).resize(function() {
