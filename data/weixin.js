@@ -1,5 +1,5 @@
 var port = self.port;
-var history = new Array(10);
+var sent = new Array(10);
 var src_prefix = window.location.protocol + '//' + window.location.host;
 
 // Send heartbeats
@@ -12,15 +12,15 @@ setInterval(function() {
 // Listen to DOM mutations
 new MutationObserver(function() {
   var i, msg = captureMessage();
-  for (i = 0; i < history.length; i++) {
-    if (history[i] == msg.id) {
+  for (i = 0; i < sent.length; i++) {
+    if (sent[i] == msg.id) {
       break;
     }
   }
-  if (i == history.length) {
+  if (i == sent.length) {
     port.emit('bullet', msg);
-    history.shift();
-    history.push(msg.id);
+    sent.shift();
+    sent.push(msg.id);
   }
 }).observe(document.getElementById('chatMainPanel'), { 'childList': true, 'subtree': true });
 
