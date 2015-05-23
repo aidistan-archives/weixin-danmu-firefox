@@ -1,8 +1,0 @@
-/* Reset */
-.slide:after { display: none; }
-
-/* Global */
-small { font-size: 0.8em; }
-
-/* Slides */
-#join textarea { margin-top:10px; width: 100%; height: 500px; font-size: 1.2em; }
