@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/aidistan/firefox-weixin-danmu.png?label=ready&title=Ready)](https://waffle.io/aidistan/firefox-weixin-danmu)
 # 微信弹幕（Firefox版）
 
 将网页版微信的消息即时显示在任意标签页上
