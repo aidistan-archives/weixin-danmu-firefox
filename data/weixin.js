@@ -4,7 +4,7 @@ var src_prefix = window.location.protocol + '//' + window.location.host;
 
 // Send heartbeats
 setInterval(function() {
-  if ($('#chatMainPanel').length > 0) {
+  if ($('#chatMainPanel').css('visibility') == 'visible') {
     port.emit('heartbeat', true);
   }
 }, 3000);
