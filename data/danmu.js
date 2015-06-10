@@ -1,7 +1,4 @@
-var size = {
-  font:  { min: 10, ref: 24, max: window.innerHeight/4 },
-  image: { width: window.innerWidth/3, height: window.innerHeight/3 }
-}
+var prefs;
 
 var colors   = [
   '#00aeef', // blue
@@ -21,19 +18,22 @@ var ctlptn = {
   position: RegExp('^[:：]([顶底])')
 }
 
+var limit = {
+  font:  { min: 10, max: window.innerHeight/4 },
+  image: { width: window.innerWidth/3, height: window.innerHeight/3 }
+}
+
 $(window).resize(function() {
-  size.font.max     = window.innerHeight / 4;
-  size.image.width  = window.innerWidth / 3;
-  size.image.height = window.innerHeight / 3;
+  limit.font.max     = window.innerHeight / 4;
+  limit.image.width  = window.innerWidth / 3;
+  limit.image.height = window.innerHeight / 3;
 });
 
-self.port.on('setup', function(settings) {
-  size.font.ref = settings.size.font.ref;
-});
+self.port.on('setup', function(msg) { prefs = msg; });
 
 self.port.on('bullet', function(msg) {
   // Defaults
-  var fontSize   = size.font.ref;
+  var fontSize = prefs.defaultfontSize;
   var color  = colors[Math.floor(Math.random() * colors.length)];
   var top    = 'auto';
   var bottom = 'auto';
@@ -75,14 +75,14 @@ self.port.on('bullet', function(msg) {
       switch (ctlptn.size.exec(msg.content.text)[1]) {
         case '大':
           fontSize *= 1.5;
-          fontSize = (fontSize > size.font.max) ? size.font.max : fontSize;
+          fontSize = (fontSize > limit.font.max) ? limit.font.max : fontSize;
           break;
         case '小':
           fontSize /= 1.5;
-          fontSize = (fontSize < size.font.min) ? size.font.min : fontSize;
+          fontSize = (fontSize < limit.font.min) ? limit.font.min : fontSize;
           break;
         case '巨':
-          fontSize = size.font.max;
+          fontSize = limit.font.max;
           break;
       }
       msg.content.text = msg.content.text.replace(ctlptn.size, '');
@@ -107,13 +107,16 @@ self.port.on('bullet', function(msg) {
   }
   else {
     var img = $('<img src="' + msg.content.image + '" />').css({
-      'max-width': size.image.width,
-      'max-height': size.image.height
+      'max-width': limit.image.width,
+      'max-height': limit.image.height
     });
     bullet = $('<div></div>').append(img);
 
     // To fix image position issue
-    fontSize = size.image.height;
+    fontSize = limit.image.height;
+  }
+  if (prefs.showUsername) {
+    bullet.prepend($('<span>' + msg.user.name + ' : </span>'));
   }
   bullet.addClass('danmu-bullet').css({
     color: color,

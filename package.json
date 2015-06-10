@@ -17,11 +17,18 @@
     "value": false
   },
   {
-    "name": "fontSize",
+    "name": "defaultfontSize",
     "title": "弹幕默认大小",
     "description": "请根据您的分辨率调整该值",
     "type": "integer",
     "value": 48
+  },
+  {
+    "name": "showUsername",
+    "title": "显示好友昵称",
+    "description": "在每条弹幕前加上发送者的昵称",
+    "type": "bool",
+    "value": false
   },
   {
     "name": "pinWeixinTab",
