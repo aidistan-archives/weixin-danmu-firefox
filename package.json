@@ -19,8 +19,16 @@
   {
     "name": "fontSize",
     "title": "弹幕默认大小",
+    "description": "请根据您的分辨率调整该值",
     "type": "integer",
-    "value": 24
+    "value": 48
+  },
+  {
+    "name": "pinWeixinTab",
+    "title": "固定微信标签",
+    "description": "自动固定插件打开的网页微信标签",
+    "type": "bool",
+    "value": false
   },
   {
     "name": "showNotifications",
