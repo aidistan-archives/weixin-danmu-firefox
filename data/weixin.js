@@ -1,38 +1,23 @@
 var port = self.port;
-var sent = new Array(10);
-var src_prefix = window.location.protocol + '//' + window.location.host;
+var src_pref, msg_sent;
 
-// Send heartbeats
-setInterval(function() {
-  if (
-    $('#chatMainPanel').css('visibility') == 'visible' ||
-    $('#chatArea').length > 0
-  ) {
-    port.emit('heartbeat', true);
-  }
-}, 3000);
+// Whether is the target page
+if (document.getElementById('chatArea')) {
+  // Initialize
+  src_pref = window.location.protocol + '//' + window.location.host;
+  msg_sent = new Array(20);
 
-// Listen to DOM mutations
-if (document.getElementById('chatMainPanel')) {
+  // Send heartbeats
+  setInterval(function() {
+    if ($('#chatArea').css('visibility') == 'visible') {
+      port.emit('heartbeat', true);
+    }
+  }, 3000);
+
+  // Listen to DOM mutations
   new MutationObserver(function() {
-    sendMessage(captureMessage);
-  }).observe(document.getElementById('chatMainPanel'), { 'childList': true, 'subtree': true });
-} else if (document.getElementById('chatArea')) {
-  new MutationObserver(function() {
-    sendMessage(captureMessage2);
+    console.log(captureMessage());
   }).observe(document.getElementById('chatArea'), { 'childList': true, 'subtree': true });
-}
-
-function sendMessage(callback) {
-  var i, msg = callback();
-
-  console.log(msg); // FIXME
-
-  if (msg !== null) {
-    port.emit('bullet', msg);
-    sent.shift();
-    sent.push(msg.id);
-  }
 }
 
 /*
@@ -46,62 +31,12 @@ function sendMessage(callback) {
 */
 
 function captureMessage() {
-  var i, id, text, img;
-
-  // Check message id
-  id = $('.chatItem:last').attr('un');
-  for (i = 0; i < sent.length; i++) {
-    if (sent[i] == id) {
-      return null;
-    }
-  }
-
-  // Handle text message
-  if ($('.chatItemContent:last pre img').length) {
-    $('.chatItemContent:last pre img').each(function() {
-      if (/^\//.test($(this).attr('src'))) {
-        $(this).attr('src', src_prefix + $(this).attr('src'));
-      }
-    });
-  }
-  if ($('.chatItemContent:last pre span.emoji').length) {
-    $('.chatItemContent:last pre span.emoji').each(function() {
-      $(this).replaceWith('<img height=24 src="http://cdn.bootcss.com/twemoji/1.2.0/svg/' + /emoji(\w+)/.exec(this.className)[1] + '.svg" />');
-    });
-  }
-  text = $('.chatItemContent:last pre').html();
-
-  // Handle image message
-  if ($('.chatItemContent:last .img_wrap img').length) {
-    img = src_prefix + $('.chatItemContent:last .img_wrap img').attr('rawsrc');
-  } else if ($('.chatItemContent:last .customEmoji').length) {
-    img = src_prefix + $('.chatItemContent:last .customEmoji').attr('src');
-  } else {
-    img = '';
-  }
-
-  // Make message
-  var msg = {
-    id: id,
-    user: {
-      name: $('.chatItemContent:last .avatar').attr('title'),
-      avatar: src_prefix + $('.chatItemContent:last .avatar').attr('src')
-    },
-    content: {
-      text: text,
-      image: img
-    }
-  };
-  return msg;
-}
-
-function captureMessage2() {
   var id, text = '', img = '';
 
   // Check message id
   id = $.parseJSON($('#chatArea .message:last > .content > .ng-scope[data-cm]').attr('data-cm')).msgId;
-  for (i = 0; i < sent.length; i++) {
-    if (sent[i] == id) {
+  for (i = 0; i < msg_sent.length; i++) {
+    if (msg_sent[i] == id) {
       return null;
     }
   }
@@ -111,7 +46,7 @@ function captureMessage2() {
     if ($('#chatArea .message:last .plain pre img').length) {
       $('#chatArea .message:last .plain pre img').each(function() {
         if (/^\//.test($(this).attr('src'))) {
-          $(this).attr('src', src_prefix + $(this).attr('src'));
+          $(this).attr('src', src_pref + $(this).attr('src'));
         }
       });
     }
@@ -125,11 +60,11 @@ function captureMessage2() {
   // Handle image message
   } else if ($('#chatArea .message:last .picture .msg-img').length &&
   /^\//.test($('#chatArea .message:last .picture .msg-img').attr('src'))) {
-    img = src_prefix + $('#chatArea .message:last .picture .msg-img').attr('src').split('&type=slave')[0];
+    img = src_pref + $('#chatArea .message:last .picture .msg-img').attr('src').split('&type=slave')[0];
 
   // Handle custom_emoji message
   } else if ($('#chatArea .message:last .emoticon .custom_emoji').length) {
-    img = src_prefix + $('#chatArea .message:last .custom_emoji').attr('src');
+    img = src_pref + $('#chatArea .message:last .custom_emoji').attr('src');
 
   // Capture nothing
   } else {
@@ -141,12 +76,18 @@ function captureMessage2() {
     id: id,
     user: {
       name: $('#chatArea .message:last .avatar').attr('title'),
-      avatar: src_prefix + $('#chatArea .message:last .avatar').attr('src')
+      avatar: src_pref + $('#chatArea .message:last .avatar').attr('src')
     },
     content: {
       text: text,
       image: img
     }
   };
+
+  // Send
+  port.emit('bullet', msg);
+  msg_sent.shift();
+  msg_sent.push(msg.id);
+
   return msg;
 }
