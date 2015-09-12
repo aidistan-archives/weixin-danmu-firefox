@@ -51,7 +51,7 @@ var pagemod = pageMod.PageMod({
   include: ['*.qq.com', '*.wechat.com'],
   attachTo: 'top',
   contentScriptFile: [
-    self.data.url('vendor/jquery-2.1.3.min.js'),
+    self.data.url('vendor/jquery-2.1.4.min.js'),
     self.data.url('weixin.js')
   ],
   onAttach: function(worker){
@@ -127,7 +127,7 @@ function attachDanmu(tab) {
   showNotification({ title: '加载弹幕发射模块', text: '至页面' + tab.url });
   var worker = tab.attach({
     contentScriptFile: [
-      self.data.url('vendor/jquery-2.1.3.min.js'),
+      self.data.url('vendor/jquery-2.1.4.min.js'),
       self.data.url('danmu.js')
     ]
   });
