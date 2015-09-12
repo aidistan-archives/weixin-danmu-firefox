@@ -76,7 +76,7 @@ var pagemod = pageMod.PageMod({
     });
 
     function hookup() {
-      showNotification({ title: '侦测到微信对话框打开', text: '开始监听微信消息' });
+      showNotification({ title: '已登陆网页微信', text: '开始监听微信消息' });
       activated = true;
       button.icon = {
         '16': './icons/icon-16.png',
@@ -86,7 +86,7 @@ var pagemod = pageMod.PageMod({
     }
 
     function breakup() {
-      showNotification({ title: '侦测到微信对话框消失', text: '不再监听微信消息'  });
+      showNotification({ title: '已退出网页微信', text: '不再监听微信消息'  });
       button.icon = {
         '16': './icons/icon-o-16.png',
         '32': './icons/icon-o-32.png',
