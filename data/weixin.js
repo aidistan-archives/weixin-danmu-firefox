@@ -16,7 +16,7 @@ if (document.getElementById('chatArea')) {
 
   // Listen to DOM mutations
   new MutationObserver(function() {
-    console.log(captureMessage());
+    captureMessage();
   }).observe(document.getElementById('chatArea'), { 'childList': true, 'subtree': true });
 }
 
@@ -39,6 +39,11 @@ function captureMessage() {
     if (msg_sent[i] == id) {
       return null;
     }
+  }
+
+  // HACK for issue #18
+  if (id.length < 18) {
+    return null;
   }
 
   // Handle text message
