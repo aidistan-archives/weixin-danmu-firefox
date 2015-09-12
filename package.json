@@ -1,14 +1,18 @@
 {
-  "name": "weixin-danmu",
   "title": "微信弹幕",
-  "id": "jid1-MxmEznXZHTAnJw",
+  "name": "weixin-danmu",
+  "version": "2.0.0",
   "description": "将网页版微信的消息即时显示在任意标签页上",
-  "icon": "data/icons/icon-32.png",
-  "icon64": "data/icons/icon-64.png",
-  "homepage": "https://github.com/aidistan/firefox-weixin-danmu",
   "author": "Aidi Stan",
   "license": "MIT",
-  "version": "2.0.0",
+  "homepage": "https://github.com/aidistan/firefox-weixin-danmu",
+  "main": "index.js",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "icon": "data/icons/icon-32.png",
+  "icon64": "data/icons/icon-64.png",
   "preferences": [{
     "name": "disableShooting",
     "title": "暂停弹幕显示",
