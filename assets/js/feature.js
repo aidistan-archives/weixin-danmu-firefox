@@ -11,10 +11,14 @@ $(function(){
   }).on('wheel', function(e) {
     if (!lastWheelTimeStamp || e.timeStamp - lastWheelTimeStamp > 500) {
       lastWheelTimeStamp = e.timeStamp;
-      e.originalEvent.deltaY > 0 ? slideUp(): slideDown();
+      if (e.originalEvent.deltaY > 0) {
+        slideUp();
+      } else {
+        slideDown();
+      }
     }
     return false;
-  })
+  });
 
   var Hammer = $.AMUI.Hammer;
   var hammertime = new Hammer(document.getElementById('main'));
@@ -47,6 +51,6 @@ $(function(){
   }
 
   function slideOver() {
-    location.href = 'index.html'
+    location.href = 'index.html';
   }
 });
