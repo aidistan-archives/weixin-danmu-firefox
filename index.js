@@ -58,9 +58,11 @@ var pagemod = pageMod.PageMod({
     showNotification({ title: '加载消息捕获模块', text: '至页面' + worker.url });
 
     worker.port.on('bullet', function(msg) {
-      showNotification({ title: '捕获到消息', text: msg.content.text });
-      if (!prefs.disableShooting && dm_worker) {
-        dm_worker.port.emit('bullet', msg);
+      if (prefs.showAllMessages || msg.room == 'inside') {
+        showNotification({ title: '捕获到消息', text: msg.content.text });
+        if (!prefs.disableShooting && dm_worker) {
+          dm_worker.port.emit('bullet', msg);
+        }
       }
     });
 

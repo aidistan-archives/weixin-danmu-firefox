@@ -1,11 +1,11 @@
 var port = self.port;
-var src_pref, msg_sent;
+var src_pref, msg_read;
 
 // Whether is the target page
 if (document.getElementById('chatArea')) {
   // Initialize
   src_pref = window.location.protocol + '//' + window.location.host;
-  msg_sent = new Array(20);
+  msg_read = new Array(40);
 
   // Send heartbeats
   setInterval(function() {
@@ -16,7 +16,7 @@ if (document.getElementById('chatArea')) {
 
   // Listen to DOM mutations
   new MutationObserver(function() {
-    captureMessage();
+    sendMessage(captureMessage());
   }).observe(document.getElementById('chatArea'), { 'childList': true, 'subtree': true });
 }
 
@@ -31,15 +31,22 @@ if (document.getElementById('chatArea')) {
 */
 
 function captureMessage() {
-  var id, text = '', img = '';
+  var text = '', img = '';
 
-  // Check message id
-  id = $.parseJSON($('#chatArea .message:last > .content > .ng-scope[data-cm]').attr('data-cm')).msgId;
-  for (i = 0; i < msg_sent.length; i++) {
-    if (msg_sent[i] == id) {
+  // Get unique selector
+  var selector = $('#chatArea .message:last > .content > .ng-scope[data-cm]').attr('data-cm');
+  var id = $.parseJSON(selector).msgId;
+
+  // Check the message if read
+  for (i = 0; i < msg_read.length; i++) {
+    if (msg_read[i] == id) {
       return null;
     }
   }
+
+  // Mark as read
+  msg_read.shift();
+  msg_read.push(id);
 
   // HACK for issue #18
   if (id.length < 18) {
@@ -86,13 +93,18 @@ function captureMessage() {
     content: {
       text: text,
       image: img
-    }
+    },
+    selector: selector
   };
 
-  // Send
-  port.emit('bullet', msg);
-  msg_sent.shift();
-  msg_sent.push(msg.id);
-
   return msg;
+}
+
+function sendMessage(msg) {
+  if (msg) {
+    setTimeout(function() {
+      msg.room = $("[data-cm='" + msg.selector + "']").length > 0 ? 'inside' : 'outside';
+      port.emit('bullet', msg);
+    }, 100);
+  }
 }

@@ -16,12 +16,12 @@ var ctlptn = {
   color: RegExp('^[:：]([蓝红黄橙绿紫黑白])'),
   size: RegExp('^[:：]([巨大小])'),
   position: RegExp('^[:：]([顶底])')
-}
+};
 
 var limit = {
   font:  { min: 10, max: window.innerHeight/4 },
   image: { width: window.innerWidth/3, height: window.innerHeight/3 }
-}
+};
 
 $(window).resize(function() {
   limit.font.max     = window.innerHeight / 4;
