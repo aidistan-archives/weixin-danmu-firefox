@@ -60,7 +60,7 @@ var pagemod = pageMod.PageMod({
     worker.port.on('bullet', function(msg) {
       if (prefs.showAllMessages || msg.room == 'inside') {
         showNotification({ title: '捕获到消息', text: msg.content.text });
-        if (!prefs.disableShooting && dm_worker) {
+        if (dm_worker) {
           dm_worker.port.emit('bullet', msg);
         }
       }
