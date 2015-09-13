@@ -4,3 +4,8 @@ node_modules
 # Ignore any zip or xpi files
 *.zip
 *.xpi
+
+# Ignore hidden files and folders
+.git
+.gitignore
+.jpmignore
