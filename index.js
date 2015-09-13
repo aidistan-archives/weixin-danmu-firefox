@@ -166,6 +166,8 @@ function showNotification(notify) {
 
 // Handle things down on unload
 exports.onUnload = function (reason) {
+  var id;
+
   // Stop modifying pages
   pagemod.destroy();
 
