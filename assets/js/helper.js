@@ -1,7 +1,38 @@
 (function(){
-  $('#join textarea').keypress(function(e) {
-    if (e.key == 'Enter') {
-      $('#join textarea').replaceWith('<img src="' + $(this).val() + '" height=500 /></div>');
+  // To trigger the -moz-drag-over CSS pseudoclass and the drog event
+  // https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Drag_operations
+  $('.droparea').on('dragenter', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  });
+
+  $('.droparea').on('dragover', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  });
+
+  $('#join .droparea').on('drop', function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    var files = e.originalEvent.dataTransfer.files;
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+
+      if (!/^image\//.test(file.type)) {
+        continue;
+      }
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('#join .droparea-mask').css({
+          'border': 'solid 0',
+          'background-image': 'url(' + e.target.result + ')'
+        });
+        $('#join .droparea-desc').hide();
+      };
+      reader.readAsDataURL(file);
+      break;
     }
   });
 
