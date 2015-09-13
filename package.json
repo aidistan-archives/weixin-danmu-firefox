@@ -2,7 +2,7 @@
   "title": "微信弹幕",
   "name": "weixin-danmu",
   "id": "jid1-MxmEznXZHTAnJw@jetpack",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "将网页版微信的消息即时显示在任意标签页上",
   "author": "Aidi Stan",
   "license": "MIT",
