@@ -37,7 +37,7 @@ var button = buttons.ActionButton({
     }
     else {
       if (activated) {
-        tabs.open('http://aidistan.github.io/firefox-weixin-danmu/helper.html');
+        tabs.open('http://aidistan.github.io/browser-weixin-danmu/helper.html');
       }
       else {
         tabs.open({ url: 'https://wx.qq.com/', isPinned: prefs.pinWeixinTab });

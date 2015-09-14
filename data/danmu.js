@@ -120,7 +120,7 @@ self.port.on('bullet', function(msg) {
   }
   bullet.addClass('danmu-bullet').css({
     color: color,
-    'font-size': fontSize,
+    'font-size': fontSize + 'px',
     'font-weight': 'bold',
     'white-space': 'nowrap',
     'overflow-y': 'visible'

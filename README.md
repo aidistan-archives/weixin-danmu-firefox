@@ -4,7 +4,7 @@
 
 ## 安装
 
-目前支持[从火狐扩展商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)和[从Github直接安装](http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi)。
+目前支持[从火狐扩展商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)和[从 Github 直接安装](http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi)。
 
 ## 使用
 
@@ -15,7 +15,7 @@
 5. 在手机微信上向所选的好友或群发消息
 6. 弹幕出现！
 
-更多用法请参考[插件主页](http://aidistan.github.io/firefox-weixin-danmu/)。
+更多用法请参考[插件主页](http://aidistan.github.io/browser-weixin-danmu/)。
 
 ## 致谢
 
