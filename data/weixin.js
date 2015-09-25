@@ -69,6 +69,14 @@ function captureMessage() {
     }
     text = $('#chatArea .message:last .plain pre').html();
 
+    // HACK for aidistan/browser-weixin-danmu#1
+    if (
+      /^\[Received a sticker. View on phone\]$/.test(text) ||
+      /^\[Sent a sticker. View on phone\]$/.test(text)
+    ) {
+      return null;
+    }
+
   // Handle image message
   } else if ($('#chatArea .message:last .picture .msg-img').length &&
   /^\//.test($('#chatArea .message:last .picture .msg-img').attr('src'))) {
