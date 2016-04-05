@@ -23,6 +23,10 @@
 
 ## 变更
 
+### v2.0.3 (20160405)
+
+- 屏蔽部分无意义消息
+
 ### v2.0.2 (20150914)
 
 - 修复所有已知问题
@@ -36,4 +40,4 @@
 
 ## 许可
 
-Copyright (c) 2015 Aidi Stan under [the MIT License](https://github.com/aidistan/firefox-weixin-danmu/blob/master/LICENSE)
+Copyright (c) 2015-2016 Aidi Stan under [the MIT License](https://github.com/aidistan/firefox-weixin-danmu/blob/master/LICENSE)
