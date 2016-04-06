@@ -12,8 +12,6 @@
     "firefox": ">=38.0a1",
     "fennec": ">=38.0a1"
   },
-  "icon": "data/icons/icon-32.png",
-  "icon64": "data/icons/icon-64.png",
   "preferences": [{
     "name": "showAllMessages",
     "title": "显示所有消息",

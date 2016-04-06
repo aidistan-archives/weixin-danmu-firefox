@@ -161,7 +161,7 @@ function showNotification(notify) {
     toaster.notify({
       title: notify.title,
       text: notify.text,
-      iconURL: self.data.url('icons/icon.png')
+      iconURL: self.data.url('icons/icon-64.png')
     });
   }
 }
