@@ -4,7 +4,7 @@
 
 ## 安装
 
-目前支持[从火狐扩展商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/)和[从 Github 直接安装](http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi)。
+目前支持 [从火狐扩展商店安装](https://addons.mozilla.org/zh-CN/firefox/addon/weixin-danmu/) 和 [从 Github 直接安装](http://aidistan.github.io/firefox-weixin-danmu/weixin-danmu.xpi)。
 
 ## 使用
 
@@ -15,7 +15,7 @@
 5. 在手机微信上向所选的好友或群发消息
 6. 弹幕出现！
 
-更多用法请参考[插件主页](http://aidistan.github.io/browser-weixin-danmu/)。
+更多用法请参考 [插件主页](http://aidistan.github.io/browser-weixin-danmu/)。
 
 ## 致谢
 
@@ -23,20 +23,12 @@
 
 ## 变更
 
-### v2.0.3 (20160405)
+### v2.1.0 (20160528)
 
-- 屏蔽部分无意义消息
+- 默认忽略自己发出的消息
+- 进一步提升用户体验
 
-### v2.0.2 (20150914)
-
-- 修复所有已知问题
-
-### v2.0.0 (20150625)
-
-- 兼容新版网页微信
-- 部分功能仍存在bug
-
-请查看[变更历史](https://github.com/aidistan/firefox-weixin-danmu/blob/master/HISTORY.md)了解更多。
+请查看 [变更历史](https://github.com/aidistan/firefox-weixin-danmu/blob/master/HISTORY.md) 了解更多。
 
 ## 许可
 
