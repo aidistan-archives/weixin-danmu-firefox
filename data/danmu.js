@@ -31,7 +31,7 @@ $(window).resize(function() {
 
 self.port.on('setup', function(msg) { prefs = msg; });
 
-self.port.on('bullet', function(msg) {
+self.port.on('danmu', function(msg) {
   // Defaults
   var fontSize = prefs.defaultfontSize;
   var color  = colors[Math.floor(Math.random() * colors.length)];

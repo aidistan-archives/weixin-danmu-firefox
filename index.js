@@ -27,7 +27,7 @@ var button = buttons.ActionButton({
         var counter = 0;
         var timer = tmr.setInterval(function() {
           if (counter++ < 10) {
-            dm_worker.port.emit('bullet', {user:{name: '弹幕测试'}, content:{text: randomString(), image: ''}});
+            dm_worker.port.emit('danmu', {user:{name: '弹幕测试'}, content:{text: randomString(), image: ''}});
           }
           else {
             tmr.clearInterval(timer);
@@ -57,11 +57,14 @@ var pagemod = pageMod.PageMod({
   onAttach: function(worker){
     showNotification({ title: '加载消息捕获模块', text: '至页面' + worker.url });
 
-    worker.port.on('bullet', function(msg) {
+    worker.port.on('weixin', function(msg) {
       if (prefs.showAllMessages || msg.room == 'inside') {
         showNotification({ title: '捕获到消息', text: msg.content.text });
+
+        if (msg.user.isSelf && !prefs.showMyMessages) return;
+
         if (dm_worker) {
-          dm_worker.port.emit('bullet', msg);
+          dm_worker.port.emit('danmu', msg);
         }
       }
     });

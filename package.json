@@ -20,6 +20,13 @@
     "value": false
   },
   {
+    "name": "showMyMessages",
+    "title": "显示自己消息",
+    "description": "建议仅在活动时开启该选项",
+    "type": "bool",
+    "value": false
+  },
+  {
     "name": "defaultfontSize",
     "title": "弹幕默认大小",
     "description": "请根据您的分辨率调整该值",
