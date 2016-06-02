@@ -6,7 +6,7 @@
   "description": "将网页版微信的消息即时显示在任意标签页上",
   "author": "Aidi Stan",
   "license": "MIT",
-  "homepage": "https://github.com/aidistan/browser-weixin-danmu",
+  "homepage": "http://aidistan.github.io/browser-weixin-danmu/",
   "main": "index.js",
   "engines": {
     "firefox": ">=38.0a1",
