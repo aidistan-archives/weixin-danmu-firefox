@@ -83,11 +83,11 @@ function captureMessage() {
   // Handle image message
   } else if ($('#chatArea .message:last .picture .msg-img').length &&
   /^\//.test($('#chatArea .message:last .picture .msg-img').attr('src'))) {
-    msg.content.img = src_pref + $('#chatArea .message:last .picture .msg-img').attr('src').split('&type=slave')[0];
+    msg.content.image = src_pref + $('#chatArea .message:last .picture .msg-img').attr('src').split('&type=slave')[0];
 
   // Handle custom_emoji message
   } else if ($('#chatArea .message:last .emoticon .custom_emoji').length) {
-    msg.content.img = src_pref + $('#chatArea .message:last .custom_emoji').attr('src');
+    msg.content.image = src_pref + $('#chatArea .message:last .custom_emoji').attr('src');
 
   // Capture nothing
   } else {
